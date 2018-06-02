@@ -1,6 +1,6 @@
 package StudentPackage;
 import java.util.*;
-public class RegisterStudent {
+public class RegisterStudent implements Student {
 	String name,branch;
 	public int credits[][]=new int[4][4];
 	public int marks[][]=new int[4][4];
@@ -8,12 +8,17 @@ public class RegisterStudent {
 	float cgpa;
 	Scanner inp=new Scanner(System.in);
 	
-	public RegisterStudent(String n,String b) throws CreditLimit {
+	public RegisterStudent() throws CreditLimit {
 		// TODO Auto-generated constructor stub
-		this.name=n;
-		this.branch=b;
+		this.getDetails();
 		this.getCredits();
 		this.getMarks();
+	}
+	public void getDetails() {
+		System.out.println("Enter Name:");
+		this.name=inp.next();
+		System.out.println("Enter Branch:");
+		this.branch=inp.next();
 	}
 	void getCredits() throws CreditLimit {
 		for(int i=0;i<4;i++) {
